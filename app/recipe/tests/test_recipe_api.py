@@ -186,7 +186,7 @@ class PrivateRecipeAPITests(TestCase):
         self.assertEqual(res.status_code, status.HTTP_204_NO_CONTENT)
         self.assertFalse(Recipe.objects.filter(id=recipe.id).exists())
 
-    def test_recipe_other_users_recipe_error(self):
+    def test_delete_other_users_recipe_error(self):
         """Test trying to delete another users recipe gives error."""
         new_user = create_user(email='new@example.com', password='new123')
         recipe = create_recipe(user=new_user)
